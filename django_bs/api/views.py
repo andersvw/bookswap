@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 
-from rest_framework import status, viewsets
+from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 
 from api.models import *
 from api.serializers import *
 
-import hashlib, random
+import hashlib, random, json
 
 #Randomly chosen alphabet that includes most of the ASCII character set (without some used in SQL syntax)
 alphabet = " !#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~"
@@ -45,22 +45,25 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
     def authenticate(self, request):
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
+        data = json.loads(request.body)
+        username = data['username']
+        password = data['password']
 
-        # try:
-        #     user = User.objects.get(username=username)
-        # except DoesNotExist:
-        #     return Response()
-        queryset = User.objects.all()
-        user = get_object_or_404(queryset, username=username)
+        try:
+            user = User.objects.get(username=username)
+        except DoesNotExist:
+            content = {'username' : username, 'issue': 'Username not found'}
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
 
         saltedpass = password + str(user.salt)
-        hashedpass = hashlib.sha512(saltedpass).hexdigest().encode('utf-8')
+        hashedpass = hashlib.sha512(saltedpass).hexdigest()
 
         if(str(user.password) == hashedpass):
             serializer = UserSerializer(user)
             return Response(serializer.data)
+        else:
+            content = {'username': username, 'issue': 'Incorrect password'}
+            return Response(content, status=status.HTTP_404_NOT_FOUND)
 
     def signup(self, request):
         #salt = ''.join(random.SystemRandom().choice(alphabet) for _ in xrange(16)))
