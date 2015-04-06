@@ -11,7 +11,7 @@ INSERT INTO college(`name`) VALUES('Delaware State University');
 
 # User Information
 INSERT INTO user_info(`user_id`, `college_id`, `first_name`, `last_name`, `email`, `address`, `phone_number`) VALUES(1, 1, 'Anders', 'Van Winkle', 'andersvw@udel.edu', '32 Prospect Avenue Newark, DE', '3028934380');
-INSERT INTO user_info(`user_id`, `college_id`, `first_name`, `last_name`, `email`, `address`, `phone_number`) VALUES(2, 1, 'Brad', 'Collins', 'icon@udel.edu', '21 Haines Street Newark, DE', '3028535989');
+INSERT INTO user_info(`user_id`, `college_id`, `first_name`, `last_name`, `email`, `address`, `phone_number`) VALUES(2, 1, 'Brad', 'Collins', 'bcollinz@udel.edu', '21 Haines Street Newark, DE', '3028535989');
 INSERT INTO user_info(`user_id`, `college_id`, `first_name`, `last_name`, `email`, `address`, `phone_number`) VALUES(3, 1, 'Ben', 'Woratyla', 'woratyla@udel.edu', '21 Haines Street Newark, DE', '3026026506');
 
 # Authors

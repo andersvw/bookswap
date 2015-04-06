@@ -10,7 +10,7 @@ Important Django commands:
 	python manage.py makemigrations api		-creates migration for specified module
 	python manage.py migrate api 0001 --fake	-first migration must be done as fake because tables already exist
 	
-	
+	python manage.py collectstatic			-copies all static files into the specified STATIC_URL within the project
 
 
 Installed Python modules:
@@ -34,4 +34,4 @@ Guides:
 
 
 Run uwsgi server:
-	uwsgi --socket 0.0.0.0:8000 --protocol=http --wsgi-file django_bs/wsgi.py
+	uwsgi --socket 0.0.0.0:8000 --protocol=http --wsgi-file=django_bs/wsgi.py
