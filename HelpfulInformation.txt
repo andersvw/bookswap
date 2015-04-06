@@ -4,12 +4,12 @@ Important Django commands:
 	python manage.py migrate			-migrates new database models
 	python manage.py shell				-opens the python shell preloaded with django settings
 	python manage.py syncdb
-	
+
 	python manage.py validate 			-checks for issues
-	
+
 	python manage.py makemigrations api		-creates migration for specified module
 	python manage.py migrate api 0001 --fake	-first migration must be done as fake because tables already exist
-	
+
 	python manage.py collectstatic			-copies all static files into the specified STATIC_URL within the project
 
 
@@ -27,11 +27,12 @@ Installed Python modules:
 Documentation:
 	https://docs.djangoproject.com/en/1.8/
 	http://www.django-rest-framework.org/
-	
+
 
 Guides:
 	https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-applications-using-uwsgi-web-server-with-nginx
 
 
 Run uwsgi server:
-	uwsgi --socket 0.0.0.0:8000 --protocol=http --wsgi-file=django_bs/wsgi.py
+	uwsgi --socket 0.0.0.0:8000 --protocol=http --wsgi-file=django_bs/wsgi.py 		-run in foreground
+	uwsgi --socket 0.0.0.0:8000 --protocol=http --wsgi-file=django_bs/wsgi.py &   -run in background, remember to run ps to get the PID (1414)
