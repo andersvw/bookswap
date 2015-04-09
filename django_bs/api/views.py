@@ -6,7 +6,10 @@ from rest_framework.response import Response
 from api.models import *
 from api.serializers import *
 
-import hashlib, random, json
+import hashlib, random, json, datetime, warnings, exceptions
+
+warnings.filterwarnings('ignore', category=exceptions.RuntimeWarning, message='DateTimeField User.last_login received a naive datetime')
+warnings.filterwarnings('ignore', category=exceptions.RuntimeWarning, message='DateTimeField User.created received a naive datetime')
 
 #Randomly chosen alphabet that includes most of the ASCII character set (without some used in SQL syntax)
 alphabet = " !#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~"
@@ -45,9 +48,8 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
     def authenticate(self, request):
-        data = json.loads(request.body)
-        username = data['username']
-        password = data['password']
+        username = request.QUERY_PARAMS.get('username', None)
+        password = request.QUERY_PARAMS.get('password', None)
 
         try:
             user = User.objects.get(username=username)
@@ -55,10 +57,12 @@ class UserViewSet(viewsets.ModelViewSet):
             content = {'username' : username, 'issue': 'Username not found'}
             return Response(content, status=status.HTTP_404_NOT_FOUND)
 
-        saltedpass = password + str(user.salt)
+        saltedpass = str(password) + str(user.salt)
         hashedpass = hashlib.sha512(saltedpass).hexdigest()
 
         if(str(user.password) == hashedpass):
+            user.last_login = datetime.datetime.now()
+            user.save()
             serializer = UserSerializer(user)
             return Response(serializer.data)
         else:
@@ -66,8 +70,26 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(content, status=status.HTTP_404_NOT_FOUND)
 
     def signup(self, request):
-        #salt = ''.join(random.SystemRandom().choice(alphabet) for _ in xrange(16)))
-        pass
+        data = json.loads(request.body)
+        username = data['username']
+        password = data['password']
+
+        try:
+            user = User.objects.get(username=username)
+            content = {'username' : username, 'issue': 'Username already taken'}
+            return Response(content, status=status.HTTP_403_FORBIDDEN)
+        except User.DoesNotExist:
+            pass
+
+        salt = ''.join(random.SystemRandom().choice(alphabet) for _ in xrange(16))
+        saltedpass = str(password) + salt
+        hashedpass = hashlib.sha512(saltedpass).hexdigest()
+
+        user = User(username=str(username), password=password, salt=salt, created=datetime.datetime.now(), last_login=datetime.datetime.now())
+        user.save()
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
 
 
 class UserInfoViewSet(viewsets.ModelViewSet):

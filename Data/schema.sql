@@ -136,6 +136,7 @@ CREATE TABLE IF NOT EXISTS `bookswap`.`listing` (
   `price` DECIMAL(10, 2) NOT NULL,
   `book_condition` VARCHAR(100),
   `description` VARCHAR(100),
+  `image_path` VARCHAR(100),
 
   PRIMARY KEY (`id`),
   INDEX (`user_id`),

@@ -1,9 +1,9 @@
 USE `bookswap`;
 
 # Users
-INSERT INTO user(`username`, `password`, `salt`, `created`, `last_login`) VALUES('andersvw', '31e71beb61d5f0a2055c07a2911191ae7534a91fe937cc0679e6e4ff11ffce1b99ab476c09b6b58c2ebf363771083fea8a9b88472c526970bf5f208f38c74d4f', 'test', NOW(), NOW());
-INSERT INTO user(`username`, `password`, `salt`, `created`, `last_login`) VALUES('bcollins', '39d21a9a443703c0cfb7a82d93ca88c27a0bf91c13835a1aa660ef45d3eba0b17be1ae814fa74a7b07f07ab167a5869af753b880eea795418f0c84f9fb4f7d37', 'test', NOW(), NOW());
-INSERT INTO user(`username`, `password`, `salt`, `created`, `last_login`) VALUES('bworatyla', '4558b3cb1c9d8f50bd659a1260c3395534e099a99de7cecc85effbe215fc41833b35d097aa416c7abc98616d1620269ddc4101d9d0bb5a3d9d29b3418d7a4d28', 'test', NOW(), NOW());
+INSERT INTO user(`username`, `password`, `salt`, `created`, `last_login`) VALUES('andersvw', '31e71beb61d5f0a2055c07a2911191ae7534a91fe937cc0679e6e4ff11ffce1b99ab476c09b6b58c2ebf363771083fea8a9b88472c526970bf5f208f38c74d4f', 'test', UTC_TIMESTAMP(), UTC_TIMESTAMP());
+INSERT INTO user(`username`, `password`, `salt`, `created`, `last_login`) VALUES('bcollins', '39d21a9a443703c0cfb7a82d93ca88c27a0bf91c13835a1aa660ef45d3eba0b17be1ae814fa74a7b07f07ab167a5869af753b880eea795418f0c84f9fb4f7d37', 'test', UTC_TIMESTAMP(), UTC_TIMESTAMP());
+INSERT INTO user(`username`, `password`, `salt`, `created`, `last_login`) VALUES('bworatyla', '4558b3cb1c9d8f50bd659a1260c3395534e099a99de7cecc85effbe215fc41833b35d097aa416c7abc98616d1620269ddc4101d9d0bb5a3d9d29b3418d7a4d28', 'test', UTC_TIMESTAMP(), UTC_TIMESTAMP());
 
 # Colleges
 INSERT INTO college(`name`) VALUES('University of Delaware');
