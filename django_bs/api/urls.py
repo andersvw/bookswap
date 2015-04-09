@@ -47,7 +47,7 @@ listing_urls = [
 ]
 
 user_urls = [
-    url(r'^/$', UserViewSet.as_view({'post': 'authenticate'})),
+    url(r'^/$', UserViewSet.as_view({'get': 'authenticate', 'post': 'signup'})),
     url(r'^/(?P<pk>[0-9]+)$', UserViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 ]
 

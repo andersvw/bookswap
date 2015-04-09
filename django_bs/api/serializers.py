@@ -85,7 +85,6 @@ class CourseBookSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        field = ('username', 'password')
         exclude = ('id', 'salt')
 
 

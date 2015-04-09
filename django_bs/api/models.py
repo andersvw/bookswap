@@ -96,6 +96,9 @@ class User(models.Model):
     username = models.CharField(max_length=15)
     password = models.CharField(max_length=44)
     salt = models.CharField(max_length=16)
+    role = models.CharField(max_length=20)
+    created = models.DateTimeField()
+    last_login = models.DateTimeField()
 
     def __unicode__(self):
         return self.username
