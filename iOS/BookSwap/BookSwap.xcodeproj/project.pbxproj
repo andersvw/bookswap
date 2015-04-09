@@ -12,18 +12,61 @@
 		C103568C1AD5D53F00BAE906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C103568A1AD5D53F00BAE906 /* Main.storyboard */; };
 		C103568E1AD5D53F00BAE906 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C103568D1AD5D53F00BAE906 /* Images.xcassets */; };
 		C10356911AD5D53F00BAE906 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C103568F1AD5D53F00BAE906 /* LaunchScreen.xib */; };
-		C103569D1AD5D53F00BAE906 /* BookSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103569C1AD5D53F00BAE906 /* BookSwapTests.swift */; };
+		C10356A91AD5E67F00BAE906 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10356A81AD5E67F00BAE906 /* SignInController.swift */; };
+		C11430DC1AD6028E00B66192 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C1087EBE1AD5F7DE00B71571 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C10356971AD5D53F00BAE906 /* PBXContainerItemProxy */ = {
+		C1087EBD1AD5F7DE00B71571 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C10356791AD5D53F00BAE906 /* Project object */;
+			containerPortal = C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		C1087EBF1AD5F7DE00B71571 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		C1087EC11AD5F7DE00B71571 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		C1087EC31AD5F7DE00B71571 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		C11430D91AD6026D00B66192 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = C10356801AD5D53F00BAE906;
-			remoteInfo = BookSwap;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C11430DB1AD6027900B66192 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C11430DC1AD6028E00B66192 /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C10356811AD5D53F00BAE906 /* BookSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,20 +76,14 @@
 		C103568B1AD5D53F00BAE906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C103568D1AD5D53F00BAE906 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C10356901AD5D53F00BAE906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C10356961AD5D53F00BAE906 /* BookSwapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookSwapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C103569B1AD5D53F00BAE906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C103569C1AD5D53F00BAE906 /* BookSwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSwapTests.swift; sourceTree = "<group>"; };
+		C10356A81AD5E67F00BAE906 /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C103567E1AD5D53F00BAE906 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C10356931AD5D53F00BAE906 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +96,7 @@
 		C10356781AD5D53F00BAE906 = {
 			isa = PBXGroup;
 			children = (
+				C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */,
 				C10356831AD5D53F00BAE906 /* BookSwap */,
 				C10356991AD5D53F00BAE906 /* BookSwapTests */,
 				C10356821AD5D53F00BAE906 /* Products */,
@@ -69,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				C10356811AD5D53F00BAE906 /* BookSwap.app */,
-				C10356961AD5D53F00BAE906 /* BookSwapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +120,7 @@
 				C103568D1AD5D53F00BAE906 /* Images.xcassets */,
 				C103568F1AD5D53F00BAE906 /* LaunchScreen.xib */,
 				C10356841AD5D53F00BAE906 /* Supporting Files */,
+				C10356A81AD5E67F00BAE906 /* SignInController.swift */,
 			);
 			path = BookSwap;
 			sourceTree = "<group>";
@@ -112,6 +150,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C1087EB71AD5F7DE00B71571 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1087EBE1AD5F7DE00B71571 /* Alamofire.framework */,
+				C1087EC01AD5F7DE00B71571 /* Alamofire.framework */,
+				C1087EC21AD5F7DE00B71571 /* Alamofire iOS Tests.xctest */,
+				C1087EC41AD5F7DE00B71571 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,33 +171,17 @@
 				C103567D1AD5D53F00BAE906 /* Sources */,
 				C103567E1AD5D53F00BAE906 /* Frameworks */,
 				C103567F1AD5D53F00BAE906 /* Resources */,
+				C11430DB1AD6027900B66192 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C11430DA1AD6026D00B66192 /* PBXTargetDependency */,
 			);
 			name = BookSwap;
 			productName = BookSwap;
 			productReference = C10356811AD5D53F00BAE906 /* BookSwap.app */;
 			productType = "com.apple.product-type.application";
-		};
-		C10356951AD5D53F00BAE906 /* BookSwapTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C10356A31AD5D53F00BAE906 /* Build configuration list for PBXNativeTarget "BookSwapTests" */;
-			buildPhases = (
-				C10356921AD5D53F00BAE906 /* Sources */,
-				C10356931AD5D53F00BAE906 /* Frameworks */,
-				C10356941AD5D53F00BAE906 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C10356981AD5D53F00BAE906 /* PBXTargetDependency */,
-			);
-			name = BookSwapTests;
-			productName = BookSwapTests;
-			productReference = C10356961AD5D53F00BAE906 /* BookSwapTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -161,10 +194,6 @@
 				TargetAttributes = {
 					C10356801AD5D53F00BAE906 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					C10356951AD5D53F00BAE906 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = C10356801AD5D53F00BAE906;
 					};
 				};
 			};
@@ -179,13 +208,49 @@
 			mainGroup = C10356781AD5D53F00BAE906;
 			productRefGroup = C10356821AD5D53F00BAE906 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C1087EB71AD5F7DE00B71571 /* Products */;
+					ProjectRef = C1087EB61AD5F7DE00B71571 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C10356801AD5D53F00BAE906 /* BookSwap */,
-				C10356951AD5D53F00BAE906 /* BookSwapTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C1087EBE1AD5F7DE00B71571 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C1087EBD1AD5F7DE00B71571 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C1087EC01AD5F7DE00B71571 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C1087EBF1AD5F7DE00B71571 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C1087EC21AD5F7DE00B71571 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = C1087EC11AD5F7DE00B71571 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C1087EC41AD5F7DE00B71571 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = C1087EC31AD5F7DE00B71571 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C103567F1AD5D53F00BAE906 /* Resources */ = {
@@ -198,13 +263,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C10356941AD5D53F00BAE906 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,26 +270,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10356A91AD5E67F00BAE906 /* SignInController.swift in Sources */,
 				C10356891AD5D53F00BAE906 /* ViewController.swift in Sources */,
 				C10356871AD5D53F00BAE906 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C10356921AD5D53F00BAE906 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C103569D1AD5D53F00BAE906 /* BookSwapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C10356981AD5D53F00BAE906 /* PBXTargetDependency */ = {
+		C11430DA1AD6026D00B66192 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C10356801AD5D53F00BAE906 /* BookSwap */;
-			targetProxy = C10356971AD5D53F00BAE906 /* PBXContainerItemProxy */;
+			name = "Alamofire iOS";
+			targetProxy = C11430D91AD6026D00B66192 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -289,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BookSwap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -349,42 +401,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BookSwap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		C10356A41AD5D53F00BAE906 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BookSwapTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookSwap.app/BookSwap";
-			};
-			name = Debug;
-		};
-		C10356A51AD5D53F00BAE906 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BookSwapTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookSwap.app/BookSwap";
 			};
 			name = Release;
 		};
@@ -407,14 +426,7 @@
 				C10356A21AD5D53F00BAE906 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		C10356A31AD5D53F00BAE906 /* Build configuration list for PBXNativeTarget "BookSwapTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C10356A41AD5D53F00BAE906 /* Debug */,
-				C10356A51AD5D53F00BAE906 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

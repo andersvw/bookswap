@@ -1,0 +1,3 @@
+[submodule "iOS/BookSwap/Alamofire"]
+	path = iOS/BookSwap/Alamofire
+	url = https://github.com/Alamofire.git
