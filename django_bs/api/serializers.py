@@ -20,12 +20,9 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
 
     def get_books(self, obj):
-        booksqueryset = AuthorBook.objects.raw('SELECT book.id, book.isbn, book.title, book.edition FROM author_book JOIN book ON book.id = author_book.book_id WHERE author_book.author_id = ' + str(obj.id) + ';')
-        books = []
-        for book in booksqueryset:
-            serializer = BookWithoutAuthorsSerializer(book)
-            books.append(serializer.data)
-        return books
+        queryset = AuthorBook.objects.raw('SELECT book.id, book.isbn, book.title, book.edition FROM author_book JOIN book ON book.id = author_book.book_id WHERE author_book.author_id = ' + str(obj.id) + ';')
+        serializer = BookWithoutAuthorsSerializer(queryset, many=True)
+        return serializer.data
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -35,12 +32,9 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
 
     def get_authors(self, obj):
-        authorsqueryset = AuthorBook.objects.raw('SELECT author.id, author.name FROM author_book JOIN author ON author.id = author_book.author_id WHERE author_book.book_id = ' + str(obj.id) + ';')
-        authors = []
-        for author in authorsqueryset:
-            serializer = AuthorWithoutBooksSerializer(author)
-            authors.append(serializer.data)
-        return authors
+        queryset = AuthorBook.objects.raw('SELECT author.id, author.name FROM author_book JOIN author ON author.id = author_book.author_id WHERE author_book.book_id = ' + str(obj.id) + ';')
+        serializer = AuthorWithoutBooksSerializer(queryset, many=True)
+        return serializer.data
 
 
 class AuthorBookSerializer(serializers.ModelSerializer):
@@ -65,12 +59,9 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
 
     def get_required_books(self, obj):
-        booksqueryset = CourseBook.objects.raw('SELECT book.id, book.isbn, book.title, book.edition FROM course_book JOIN book ON book.id = course_book.book_id WHERE course_book.course_id = ' + str(obj.id) + ';')
-        books = []
-        for book in booksqueryset:
-            serializer = BookSerializer(book)
-            books.append(serializer.data)
-        return books
+        queryset = CourseBook.objects.raw('SELECT book.id, book.isbn, book.title, book.edition FROM course_book JOIN book ON book.id = course_book.book_id WHERE course_book.course_id = ' + str(obj.id) + ';')
+        seiralizer = BookSerializer(queryset, many=True)
+        return serializer.data
 
 
 class CourseBookSerializer(serializers.ModelSerializer):
@@ -83,9 +74,16 @@ class CourseBookSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    user_info = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        exclude = ('id', 'salt')
+        exclude = ('password', 'salt')
+
+    def get_user_info(self, obj):
+        queryset = User.objects.raw('SELECT user_info.id, user_info.college_id, user_info.first_name, user_info.last_name, user_info.email, user_info.address, user_info.phone_number FROM user_info JOIN user ON user.id = user_info.user_id WHERE user_info.user_id = ' + str(obj.id) + ';')
+        serializer = UserInfoSerializer(queryset[0])
+        return serializer.data
 
 
 class ListingSerializer(serializers.ModelSerializer):
@@ -96,8 +94,13 @@ class ListingSerializer(serializers.ModelSerializer):
         model = Listing
 
 
+class UserWithoutInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        exclude = ('password', 'salt')
+
 class UserInfoSerializer(serializers.ModelSerializer):
-    user = UserSerializer(many=False, read_only=True)
+    user = UserWithoutInfoSerializer(many=False, read_only=True)
     college = CollegeSerializer(many=False, read_only=True)
 
     class Meta:

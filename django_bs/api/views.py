@@ -19,9 +19,38 @@ class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
+    def list(self, request):
+        name = request.QUERY_PARAMS.get('name', None)
+
+        queryset = Author.objects.all()
+        if name is not None:
+            # icontains is a case-insensitive containment test
+            queryset = queryset.filter(name__icontains=name)
+
+        serializer = AuthorSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+    def list(self, request):
+        isbn = request.QUERY_PARAMS.get('isbn', None)
+        title = request.QUERY_PARAMS.get('title', None)
+        edition = request.QUERY_PARAMS.get('edition', None)
+
+        queryset = Book.objects.all()
+        if isbn is not None:
+            queryset = queryset.filter(isbn__icontains=isbn)
+        if title is not None:
+            queryset = queryset.filter(title__icontains=title)
+        if edition is not None:
+            queryset = queryset.filter(edition=edition)
+
+        serializer = BookSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class AuthorBookViewSet(viewsets.ModelViewSet):
     queryset = AuthorBook.objects.all()
@@ -53,7 +82,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
         try:
             user = User.objects.get(username=username)
-        except DoesNotExist:
+        except User.DoesNotExist:
             content = {'username' : username, 'issue': 'Username not found'}
             return Response(content, status=status.HTTP_404_NOT_FOUND)
 
@@ -81,6 +110,11 @@ class UserViewSet(viewsets.ModelViewSet):
         except User.DoesNotExist:
             pass
 
+<<<<<<< HEAD
+=======
+        # Generates a random 16 character long salt value
+        # The available character set (alphabet) is at the top of the file
+>>>>>>> andersbranch
         salt = ''.join(random.SystemRandom().choice(alphabet) for _ in xrange(16))
         saltedpass = str(password) + salt
         hashedpass = hashlib.sha512(saltedpass).hexdigest()
@@ -89,7 +123,10 @@ class UserViewSet(viewsets.ModelViewSet):
         user.save()
         serializer = UserSerializer(user)
         return Response(serializer.data)
+<<<<<<< HEAD
 
+=======
+>>>>>>> andersbranch
 
 
 class UserInfoViewSet(viewsets.ModelViewSet):
