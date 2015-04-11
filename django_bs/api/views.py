@@ -110,11 +110,8 @@ class UserViewSet(viewsets.ModelViewSet):
         except User.DoesNotExist:
             pass
 
-<<<<<<< HEAD
-=======
         # Generates a random 16 character long salt value
         # The available character set (alphabet) is at the top of the file
->>>>>>> andersbranch
         salt = ''.join(random.SystemRandom().choice(alphabet) for _ in xrange(16))
         saltedpass = str(password) + salt
         hashedpass = hashlib.sha512(saltedpass).hexdigest()
@@ -123,10 +120,7 @@ class UserViewSet(viewsets.ModelViewSet):
         user.save()
         serializer = UserSerializer(user)
         return Response(serializer.data)
-<<<<<<< HEAD
 
-=======
->>>>>>> andersbranch
 
 
 class UserInfoViewSet(viewsets.ModelViewSet):

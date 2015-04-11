@@ -48,11 +48,7 @@ listing_urls = [
 
 user_urls = [
     url(r'^/$', UserViewSet.as_view({'get': 'authenticate', 'post': 'signup'})),
-<<<<<<< HEAD
-    url(r'^/(?P<pk>[0-9]+)$', UserViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
-=======
     url(r'^/(?P<pk>[0-9]+)$', UserViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
->>>>>>> andersbranch
 ]
 
 userinfo_urls = [
