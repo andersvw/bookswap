@@ -15,7 +15,7 @@ from api.views import *
 
 author_urls = [
     url(r'^/$', AuthorViewSet.as_view({'get': 'list', 'post': 'create'})),
-    url(r'^/(?P<pk>[0-9]+)$', AuthorViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    url(r'^/(?P<pk>[0-9]+)$', AuthorViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
 ]
 
 book_urls = [
@@ -29,12 +29,12 @@ authorbook_urls = [
 
 college_urls = [
     url(r'^/$', CollegeViewSet.as_view({'get': 'list', 'post': 'create'})),
-    url(r'^/(?P<pk>[0-9]+)$', CollegeViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    url(r'^/(?P<pk>[0-9]+)$', CollegeViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
 ]
 
 course_urls = [
     url(r'^/$', CourseViewSet.as_view({'get': 'list', 'post': 'create'})),
-    url(r'^/(?P<pk>[0-9]+)$', CourseViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    url(r'^/(?P<pk>[0-9]+)$', CourseViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
 ]
 
 coursebook_urls = [
@@ -48,21 +48,19 @@ listing_urls = [
 
 user_urls = [
     url(r'^/$', UserViewSet.as_view({'get': 'authenticate', 'post': 'signup'})),
-    url(r'^/(?P<pk>[0-9]+)$', UserViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    url(r'^/(?P<pk>[0-9]+)$', UserViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
 ]
 
 userinfo_urls = [
     url(r'^/$', UserInfoViewSet.as_view({'post': 'create'})),
-    url(r'^/(?P<pk>[0-9]+)$', UserInfoViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    url(r'^/(?P<pk>[0-9]+)$', UserInfoViewSet.as_view({'get': 'retrieve', 'put': 'update'})),
 ]
 
 urlpatterns = [
     url(r'^authors', include(author_urls)),
     url(r'^books', include(book_urls)),
-    url(r'^authorbooks', include(authorbook_urls)),
     url(r'^colleges', include(college_urls)),
     url(r'^courses', include(course_urls)),
-    url(r'^coursebooks', include(coursebook_urls)),
     url(r'^listings', include(listing_urls)),
     url(r'^users', include(user_urls)),
     url(r'^userinfo', include(userinfo_urls)),
