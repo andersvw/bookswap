@@ -72,6 +72,26 @@ class ListingViewSet(viewsets.ModelViewSet):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
 
+    def list(self, request):
+        college_name = request.QUERY_PARAMS.get('college_name', None)
+        course_title = request.QUERY_PARAMS.get('course_title', None)
+        book_title = request.QUERY_PARAMS.get('book_title', None)
+
+        queryset = Listing.objects.all()
+        if college_name is not None:
+            college = College.objects.get(name=college_name)
+            queryset = queryset.filter(college_id=college.id)
+        if course_title is not None:
+            course = Course.objects.get(title=course_title)
+            queryset = queryset.filter(course_id=course.id)
+        if book_title is not None:
+            books = Book.objects.filter(title__icontains=book_title)
+            for book in books:
+                queryset = queryset.filter(book_id=book.id)
+
+        serializer = ListingSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
